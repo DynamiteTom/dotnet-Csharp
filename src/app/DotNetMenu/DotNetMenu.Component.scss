@@ -1,0 +1,151 @@
+$iconWidth: 56px;
+
+.example-spacer {
+//  flex: 1 1 auto;
+}
+
+.main-container
+{
+  position: relative;
+  height: auto;
+  width: 100%;
+  background-color: cyan;
+}
+
+/*
+.sidenav-toggle {
+  display: none;
+
+  padding: 0;
+  margin: 8px;
+  min-width: $iconWidth;
+
+  @media (max-width: 720px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-icon {
+    font-size: 30px;
+    height: $iconWidth;
+    width: $iconWidth;
+    line-height: $iconWidth;
+    color: white;
+  }
+}
+
+.flex-container {
+    display: flex;
+    // flex-flow: row wrap;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+}
+
+@media all and (max-width: 800px) {
+    .flex-container {
+        justify-content: flex-start;
+    }
+}
+
+.flex-item {
+    width: 200px;
+    height: 150px;
+    margin-top: 5px;
+    background: tomato;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    line-height: 150px;
+}
+
+*/
+/*
+mat-nav-list  {
+    height: 1000px;
+    background-color:pink;  
+}
+
+mat-list-item{
+   position: relative;
+    background-color: black;
+    height: 600px;
+    padding-bottom:600px;
+}
+*/
+
+.arr-op2{ 
+    display: inline-block;
+    font-weight: bold; 
+    color: red;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.arr-topics{
+  position: relative;
+  font-weight: bold;
+  left: -250px;
+  display: block;
+  top: 30px;
+  color: blue;
+  height: 35px;
+  font-size: 20px; 
+}
+
+.tsHead{
+  position: relative;
+  font-weight: bold;
+  left: -250px;
+  display: block;
+  top: 0px;
+  color: red;
+  height: 50px;
+  font-size: 32px; 
+}
+
+.tsResultBox{
+    position: absolute;
+    left: 420px;
+    z-index: 2;
+    top: 0px;
+    width: 700px;
+    height: 2000px;
+    color: white;
+}
+
+
+.infoHead{
+  position: absolute;
+ font-weight: bold;
+ left: 400px;
+  display: block;
+ top: 80px! important;
+ color: red;
+ height: 50px;
+ font-size: 32px; 
+ z-index: 5;
+}
+
+.info{
+ position: absolute;
+ font-weight: bold;
+ background-color: pink;
+ left: 350px;
+ width: 85%;
+ top: 130px! important;
+  color: black;
+ height: 2000px;
+ font-size: 20px; 
+ z-index: 5;
+  }
+
+.main-container{
+    padding: 20px;
+    width: 80%;
+    height: 2000px;
+}

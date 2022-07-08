@@ -1,0 +1,77 @@
+<h1>Arrays Page</h1>
+
+<div class="arr-ex1">
+    Strings - value 
+    <br/> {{ stringVal }}
+    <br/>
+    <br/>
+    const nunbers = [4,6,10];
+    <br/>
+    <br/>The numbers array can have approx 32 opeations applied to it 
+    <br/>
+    <ul *ngFor="let o of arr_ops; let inx = index">
+        <li><span class="arr-op">{{ removeQuote(o) }}</span> - {{ removeQuote( arr_defs[inx]) }}</li>
+    </ul>
+
+    <br/>
+    numbers.push(20);
+
+    <br/>
+    <br/>
+    Other Array Operations 
+    <br/>
+    <br/>
+
+    <h3 class="arr-op">Destructuring an Array</h3>
+    unpacks elements from arrays or properties from objects 
+
+    <br/>
+    <br/>
+    <br/>
+    <h3 class="arr-op">Array Rest ...x operator</h3>
+    Puts the rest of a specific user values into array
+
+    <br/>Must be the last operator
+    <br/>
+    <br/>
+
+    <h3 class="arr-op">Array Spread operator</h3>
+    expands iterables into indiv els
+    <br/>unpacks collected els into single els 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <h3 class="arr-op">Shallow Copy Array</h3>
+    <br/>
+    <br/>Copy cpy is a ref to original array
+    <br/>Changes to original effect the cpy
+    
+    <br/>
+    <br/>const arr = [3,4,5];
+    const cpy = arr; 
+    <br/>cpy is linked to arr members 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <h3 class="arr-op">Deep Copy Array</h3>
+    <br/>npm install deepcopy
+    <br/>
+    <br/>creates a sep array and copies values from original into new array
+    <br/>
+    
+    <br/>in package.json - deepcopy: "2:1";
+    <br/>
+    <br/>const arr = [3,4,5];
+    
+    <br/>const x = deepcopy(arr);
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+ 
+
+

@@ -1,0 +1,45 @@
+<div class="main-container">
+    <h3>Click links  below&nbsp;&nbsp;&nbsp;Hover over links</h3>
+    <div *ngFor="let feature_ of dotnet_list | async; let i=index">
+    <a class="arr-op2" (click)="showDotNetFeatures(i)"> {{ removeQuote(feature_) }}</a>
+    <span class="tsResultBox">  
+        <div *ngIf="i===dotnetFeatureIndex" class="tsHead">{{ removeQuote(feature_).split('_') }}</div>
+        <div *ngFor="let arrEl of dotnet_sublist[i]; let j=index">
+            <span class="arr-topics" *ngIf="i === dotnetFeatureIndex">
+               <a (mouseover)="getInfo(i,j)"> {{ arrEl }} </a>
+               <div class="infoHead" *ngIf="j === dotnetFeatureSubIndex">{{ dotnet_sublist[i][j] }}</div>
+               <br/> 
+               <div class="info" *ngIf="j === dotnetFeatureSubIndex" [innerHTML]="dotnetInfo"></div>
+            </span>
+        </div> 
+    </span>
+</div>
+
+    
+<!--
+<mat-sidenav 
+        [opened]='true'
+        [mode]="'side'">
+    
+    <mat-toolbar color="primary"> 
+        <h2>TypeScript SubTopics</h2>
+    </mat-toolbar>
+     
+    <mat-nav-list>
+        <mat-list-item *ngFor="let feature_ of ts_list | async; let i=index">
+            <div class="arr-op2">{{ removeQuote(feature_) }}</div>
+            
+            
+        </mat-list-item>
+    </mat-nav-list>
+
+</mat-sidenav>
+-->
+<br/>
+<br/>
+</div> <!-- bottom of container-->
+<div> bottom of container</div>
+<br/>
+topy
+<div style="margin-top: 500px;"></div>
+boty
