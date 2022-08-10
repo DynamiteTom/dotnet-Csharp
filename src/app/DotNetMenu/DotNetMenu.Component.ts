@@ -1,21 +1,72 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
 
-const features =`
-    '.NET', 
-    'DotNet Core',
-    'DotNet 6',
+const features = `
+    'MVC | ASP.NET | .NET',
+    'MVC',
+    '--- ASP.NET Core',
+    '--- ASP.NET',
+    '------ Blazor',
+    '.NET',
+    '--- DotNet Core',
+    '--- DotNet 6',
+    '--- Web API',
+    'EF (Entity Framework)',
+    'LINQ',
     'C#',
     'C# versions'
 `;
 
 const subTopics = [
+  ['MVC | ASP.NET | .NET',
+    'MVC',
+    '--- ASP.NET Core',
+    '--- ASP.NET',  
+    'DotNet',
+    '--- .NET Core',
+    '--- .NET'
+  ],
+  ['MVC'],
+  ['--- ASP.NET Core'],
+  ['--- ASP.NET'],
+  ['Web API',
+     '--- API for the Web',
+     '--- lightweight-architecture',
+     '------- ASP.NET via AJAX',
+     '---------- JavaScipt',
+     '------- HTTP',
+     '---------- smartphone| tablets'
+  ],
+  [`Blazor - combination of Browser + Razor
+    <br/>--- framework lets developers build 
+    <br/>------ interactive Web APIs
+    <br/>------ Reusable Web UI Components
+    <br/>---------- using C# to share code and libraries
+    <br/>---------------- Both Client and Server
+  `,
+  `--- interactive Web APIs
+  
+  `,
+  `-------- Reusable Web UI Components
+  
+  
+  `,
+   `------------ C#
+   
+   `,
+   `------- Both Client and Server  
+   
+   `
+  ],
+  ['Razor - '],
+  
   ['.Net',
     '--- runtime', 
     '-------  CLR',
     '----------- Managed Code',
     '--- SDK',
-    ],
+    '------ Razor -'
+  ],
   ['DotNet Core',
   '--- 2.0 - C# 7.3',
   '--- 3.0 - C# 8.0',  
@@ -25,6 +76,21 @@ const subTopics = [
   '--- 6.0 - C# 10.0',
   '--- 7.0 - C# 11.0', 
   ],
+  ['EF (Entity Framework)',
+    '--- ORM',
+    '---- Object DB - .NET Mapper',
+    '------ LINQ Queries',
+    '------ Change tracking',
+    '------ Updates & schema migration',
+    ' -- ',
+    '---- EF Core DBs',
+    '------ SQL DB (on premises | azure)',
+    '------ SQLite',
+    '------ MySQL',
+    '------ PostGreSQL',
+    '------ Azure Cosmos DB'
+   ],
+   ['LINQ'],
   ['C#'],
   ['C# versions',
   ' - ', 
@@ -60,11 +126,74 @@ const subTopics = [
   ' -- ', 
   'C# 11 - .Net 7',
   '--- C# 11 - Features',
+  ],
+  ['Torch backend',
+  '--- TorchServe',  
+  '------ PyTorch',
+   '--- TensorFlow'
+  ],
+  ['Machine Learning',
+  '--- AI',
+  '--- 3 types of ML'
   ]
 ];
 
 const subTopicsInfo = [
-  [`.NET -  includes the runtime and SDK 
+   [
+  `MVC (Model View Controller) 
+    <br/>--- how to deliver webpage from server to client
+    `,
+    `--- ASP.NET MVC is a web framework based on MVC architecture
+    <br/>----- part of .NET allowing building dyn web appns 
+    `,
+    `--- ASP.NET Core is a Cloud environment for development + deployments
+    <br/>-----
+    `,
+    `--- .NET - is a blanket term for
+      <br/>----- .NET Framework - 
+      <br/>----- CLR (Common Language Runtime) 
+      <br/>------ to run .NET assemblies
+  `,
+  `----- Blazor
+  
+  `,
+  `----- Razor - .NET HTML View Generating Engine
+  <br/>-------- based on C# (used on most ASP.NET Web pages)
+  <br/>-------- (or VB)
+  <br/>------------ use @ starts inline expressions | single blocks| multi-statement blocks)
+  `,
+  `https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c`
+],
+ [`MVC - (Model View Controller) -
+   
+   
+`],
+ [`ASP.NET - Core`
+
+ ], 
+ [`ASP.NET - `
+
+ ], 
+  ['Web API',
+     '--- API for the Web',
+     '--- lightweight-architecture',
+     '------- ASP.NET via AJAX',
+     '---------- JavaScipt',
+     '------- HTTP',
+     '---------- smartphone| tablets'
+  ],  
+  ['Blazor',
+  '--- interactive Web APIs',
+  '-------- Reusable Web UI Components',
+   '------------ C#',
+   '------- Both Client and Server  '
+  ],
+  [`Razor - 
+  
+  `
+  ],
+  [
+  `.NET -  includes the runtime and SDK 
   <br/>--- .NET runtime
   <br/>------ CLR (Common Language Runtime)
   <br/>---------- Managed Code  
@@ -73,7 +202,7 @@ const subTopicsInfo = [
   <br/>------- .Net runtime -
   <br/>------- creates .NET appns + libraries-     
   `,
-   `--- .NET runtime 
+  `--- .NET runtime 
     <br/>----- is used to run a .NET app 
     <br/>-------- compilers must emit metadata 
     <br/>------------ describing types| members| refs in code
@@ -120,7 +249,7 @@ const subTopicsInfo = [
     <br/>---------------- Component Interaction
     <br/>---------------- Debugging + Profiling services
     `,
-    `------ Advantages - 
+    `------ Advantages
     <br/>/-------- Performance improvements
     <br/>-------- Easily use components devd in other langs 
     <br/>-------- Extensbile types provided by class library
@@ -149,15 +278,12 @@ const subTopicsInfo = [
        <br/> ------------------------ Delegates (like ftn pointers) for event handlers + cb ftns
        <br/> --------------------------- are secure | varifiable | type safe
        <br/> --------------------------- can rep any instance or static method that has a complete signature
-
-       
-        
       `,
-  `--- .NET SDK
-  <br/>---- lets you create DotNet apps + libraries
-   <br/>---- .NET Runtime is always installed with the SDK
-  `
-],
+      `--- .NET SDK
+        <br/>---- lets you create DotNet apps + libraries
+        <br/>---- .NET Runtime is always installed with the SDK    
+`],
+
   [`DotNet Core -  (introduced in 2014 x platform successor to .NET Framework)
   <br/>-- compatible with .NET framework - .NET 3.1 - 
   <br/>
@@ -194,20 +320,63 @@ const subTopicsInfo = [
      <br/>-- .NET MAUI support - desktop | mobile with 1 source code
      <br/>
     `], 
-  [
-     `C# - modern OOP (Object Oriented Programming) Language
+    [`EF (Entity Framework) -
+      <br/>--- lets developers work with data as domain specific objects + properties 
+      <br/>------ eg Customers | Customer addresses
+      <br/>--- (without having to rely on underlying db tables + columns)
+      `,
+      `--- ORM (Object Relational Mapper) - 
+        <br/>----- helps you to abstract diff types of DBs 
+        <br/>------- and helps query objects (instead of SQL strings)  
+      `,
+      `--- Object DB - .NET Mapper
+      
+      `,
+      `------ LINQ Queries
+      
+      `,
+            
+      ' -- ',
+
+      `------ Change tracking
+      
+      `,
+      ' -- ',
+      `------ Updates & schema migration
+      
+      `,
+      ' -- ',
+      `- 2 types of Entities (custom data classes) + data model
+      <br/>----- POCO Entities
+      <br/>----- Dynamic Proxy 
+      `,
+       `- EF API
+        <br/>---- EF6
+        <br/>---- EF Core
+       `,
+      `---- EF Core DBs
+      `,
+      '------ SQL DB (on premises | azure)',
+      '------ SQLite',
+      '------ MySQL',
+      '------ PostGreSQL',
+      '------ Azure Cosmos DB'
+      ],
+      [`LINQ - 
+    
+    `],
+      [`C# - modern OOP (Object Oriented Programming) Language
       <br/>-- is also Type safe - to build secure | robust appns  
-      <br/>---- that run in .NET 
- 
-`], 
-  [
-  'C# versions',
-  ' -- ',
-  `C# 1.1 / 1.2 - (Dec 2002) 
+      <br/>---- that run in .NET
+      `], 
+      [
+     'C# versions',
+    ' -- ',
+   `C# 1.1 / 1.2 - (Dec 2002)
     <br/>--- 
     <br/>--- 
     <br/>--- 
-`,
+  `,
   `C# 1 - Features
   <br/>--- 
   <br/>--- 
@@ -224,7 +393,6 @@ const subTopicsInfo = [
   <br/>--- 
   <br/>--- 
   `,
- 
   ' -- ', 
  `C# 3 - (Nov 2007)
  <br/>--- 
@@ -301,7 +469,6 @@ const subTopicsInfo = [
  <br/>--- Discards
  <br/>--- Binary literals and Digit separators
  <br/>--- Throw expressions
-
  `,
   ' -- ', 
  `C# 8 - (Sept 2019 - .Net Core 3 - VS 2020 - major release - targets .NET Core) 
@@ -337,7 +504,7 @@ const subTopicsInfo = [
  <br/>--- 
  <br/>--- 
  <br/>---   
- 
+
  `,
  `C#9 - Features
  <br/>
@@ -395,9 +562,124 @@ const subTopicsInfo = [
  `,
  `C# 11 - Features
  <br/>--- etc.
- 
- `
-  ] 
+  `],
+  [`Torch backend
+  <br/>--- torch.backend - 
+  <br/>------ controls the behavior of various backends that PyTorch supports
+  <br/>------ Backends include
+  <br/>---------- torch.backends.cuda
+  <br/>---------- torch.backends.cudnn 
+  <br/>---------- torch.backends.mkl 
+  <br/>---------- torch.backends.mkldnn 
+  <br/>---------- torch.backends.openmp
+  
+  `,
+  `--- TorchServe by PyTorch
+  <br/>------ is a flexible tool for serving deep learning models 
+  <br/>----------- that have been exported from PyTorch  
+  <br/>------ comes pre-installed with Deep Learning AMI with Conda (v34)
+  <br/>
+  <br/>------ is an OS model serving framework for PyTorch 
+  <br/>---------- that makes it easy to deploy trained PyTorch models
+  <br/>---------- performantly at scale without writing code     
+  <br/>
+  <br/>------ is a performant, flexible and easy to use tool
+  <br/>---------- for serving PyTorch eager mode and torschripted models 
+  <br/>
+  <br/>------ can be used for many types of inference in production settings
+  <br/>---------- It provides an easy to use CLI + utilizes REST based APIs 
+  <br/>---------- to handle state protection requests   
+  <br/>
+  <br/>------ takes a PyTorch deep learning model 
+  <br/>---------- and it wraps it in a set of REST APIs 
+  <br/>---------- Comes with a built in web-server you run from CLI
+  <br/>------------- CLI call takes in 1 or multiple models you want to serve
+  <br/>------------- + optional parameters controlling port | host | logging  
+  <br/>------ supports running custom services to handle inference handling logic          
+  <br/>
+  <br/>------ delivers lightweight serving with low latency 
+  <br/>------------- so you can deploy 
+  `,
+  `------ PyTorch - developed and us  ed at Facebook  
+  <br/>------ is one of the most popular libraries for deep learning
+  <br/>---------- Deep Learning uses artificial Neural Networks (models)
+  <br/>---------- which are computing systems comprising many layers of interconnected units  
+  <br/>------
+  <br/>------ is an open source ML framework 
+  <br/>------ that accelerates the path 
+  <br/>------------ from research prototyping 
+  <br/>------------ to production deployment
+  <br/>
+  <br/>------ based on 
+  <br/>------------ the Python lang 
+  <br/>------------------- Tensor computation - 
+  <br/>------------------- Deep neural networks built
+  <br/>------------ and the Torch library
+  <br/>
+  <br/>------ uses modules to rep neural networks 
+  <br/>----------- building blocks of stateful compn
+  <br/>----------- provides a robust library of modules + custom modules
+  <br/>-------------- multi-layer neural networks
+  <br/>
+  <br/>------ developed TorchServe  
+  <br/>
+  <br/>
+  `,
+  `--- PyTorch nn (Neural network) - nn package
+  <br/>----- defines a set of Modules (a NN layer)
+  <br/>
+  `,
+  `-------- nn.ReLU (Rectified Linear Unit)
+  <br/>----------- relu1 = nn.ReLU(inplace=False)
+  `,
+  `-------- PyTorch lightning -
+  <br/>----------- is built on top of PyTorch
+  <br/>---------------- provides a research framework 
+  <br/>---------------- allows for fast experimentation and scalability 
+  <br/>-------------------- via an OOP approach 
+  `,
+  
+  `--- TensorFlow
+  <br/>------ is better for visualization 
+  <br/>----------- debug better and track training process
+  <br/>------ better at deploying trained models to production
+  <br/>----------- due to TensorFlow Serving framework
+  <br/>---------------- that produces output from input   
+  `,
+
+ ],
+ [`Machine Learning (ML) - 
+ <br/>--- is a type of AI (artificial intellicense)
+ <br/>--- that allows S/W appns to become more accurate 
+ <br/>--- at predicting outcomes 
+ <br/>-------- (without being explicitely programmed to do so)
+ <br/>
+ <br/>--- algorithms use historical data as input 
+ <br/>-------- to predict new output values   
+ <br/>
+ <br/>--- machines should be able to learn and adapt via experience  
+ <br/>------- AI - is a broader idea where machine executes tasks smartly 
+ <br/>    
+ <br/>
+ `,
+ `--- AI (Artificial Intelligence)
+ <br/>---- is a broader idea where machine executes tasks smartly 
+ `,
+  `--- 3 types of ML (Machine Learning)
+  <br/>------- 1: Supervised learning
+  <br/>------- 2: Unservised learning
+  <br/>------- 3: Reinforcement learning
+  
+  `,
+  `--- Neural network
+  <br/>------ 
+  `,
+  `------ 3 types of Neural networks
+  <br/>----------- 1: Artificial NN (ANN)
+  <br/>----------- 2: Convolution NN (CNN) 
+  <br/>----------- 3: Recurrent NN (RNN)
+  `  
+]
 ];
 
 @Component({
